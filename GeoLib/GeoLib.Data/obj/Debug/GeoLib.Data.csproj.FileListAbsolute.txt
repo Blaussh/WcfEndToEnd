@@ -1,0 +1,14 @@
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\bin\Debug\GeoLib.Data.dll.config
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\bin\Debug\GeoLib.Data.dll
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\bin\Debug\GeoLib.Data.pdb
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\bin\Debug\EntityFramework.dll
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\bin\Debug\GeoLib.Core.dll
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\bin\Debug\GeoLib.Core.pdb
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\bin\Debug\GeoLib.Core.dll.config
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\bin\Debug\EntityFramework.xml
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\obj\Debug\GeoLib.Data.csprojResolveAssemblyReference.cache
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\obj\Debug\GeoLib.Data.csproj.CoreCompileInputs.cache
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\obj\Debug\GeoLib.Data.dll
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Data\obj\Debug\GeoLib.Data.pdb

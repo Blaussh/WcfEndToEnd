@@ -1,0 +1,6 @@
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Contracts\bin\Debug\GeoLib.Contracts.dll
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Contracts\bin\Debug\GeoLib.Contracts.pdb
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Contracts\obj\Debug\GeoLib.Contracts.csprojResolveAssemblyReference.cache
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Contracts\obj\Debug\GeoLib.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Contracts\obj\Debug\GeoLib.Contracts.dll
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Contracts\obj\Debug\GeoLib.Contracts.pdb
