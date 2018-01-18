@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Threading;
 using System.Windows;
+using GeoLib.Services;
 
 namespace GeoLib.WindowsHost
 {
@@ -19,10 +21,12 @@ namespace GeoLib.WindowsHost
         }
 
 
-        
+        private ServiceHost _hostGeoManager = null;
+
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-
+            _hostGeoManager = new ServiceHost(typeof(GeoManager));
+            _hostGeoManager.Open();
 
             btnStart.IsEnabled = false;
             btnStop.IsEnabled = true;
@@ -30,7 +34,7 @@ namespace GeoLib.WindowsHost
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
-
+            _hostGeoManager.Close();
 
             btnStart.IsEnabled = true;
             btnStop.IsEnabled = false;
