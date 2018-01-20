@@ -28,7 +28,7 @@ namespace GeoLib.Client
             //Using configuration for EndPoints
             if (txtZipCode.Text != "")
             {
-                GeoClient proxy = new GeoClient("tcpEP");
+                GeoClient proxy = new GeoClient("webEP");
                 ZipCodeData data = proxy.GetZipInfo(txtZipCode.Text);
                 if (data != null)
                 {
