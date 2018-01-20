@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading;
 using System.Windows;
+using GeoLib.Client.Contracts;
 using GeoLib.Contracts;
 using GeoLib.Proxies;
 
@@ -56,7 +57,10 @@ namespace GeoLib.Client
 
         private void btnMakeCall_Click(object sender, RoutedEventArgs e)
         {
-
+            ChannelFactory<IMessageService> factory = new ChannelFactory<IMessageService>("");
+            IMessageService proxy = factory.CreateChannel();
+            proxy.ShowMessage(txtMessage.Text);
+            factory.Close();
         }
     }
 }
