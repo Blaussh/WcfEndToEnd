@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Windows;
+using GeoLib.Contracts;
+using GeoLib.Proxies;
 
 namespace GeoLib.Client
 {
@@ -21,7 +23,14 @@ namespace GeoLib.Client
         {
             if (txtZipCode.Text != "")
             {
-
+                GeoClient proxy = new GeoClient();
+                ZipCodeData data = proxy.GetZipInfo(txtZipCode.Text);
+                if (data != null)
+                {
+                    lblCity.Content = data.City;
+                    lblState.Content = data.State;
+                }
+                proxy.Close();
             }
         }
 
