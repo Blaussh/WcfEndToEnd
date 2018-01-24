@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using System.ServiceModel.Description;
 using GeoLib.Contracts;
 using GeoLib.Services;
 
@@ -18,6 +19,26 @@ namespace GeoLib.ConsoleHost
             //Type contract = typeof(IGeoService);
 
             //hostGeoManager.AddServiceEndpoint(contract, binding, address);
+
+            #region Add Behavior programatically
+
+            // Add Behavior programatically
+            //ServiceDebugBehavior behavior =
+            //    hostGeoManager.Description.Behaviors.Find<ServiceDebugBehavior>();
+
+            //if (behavior == null)
+            //{
+            //    behavior = new ServiceDebugBehavior();
+            //    behavior.IncludeExceptionDetailInFaults = true;
+            //    hostGeoManager.Description.Behaviors.Add(behavior);
+            //}
+            //else
+            //{
+            //    behavior.IncludeExceptionDetailInFaults = true;
+            //}
+            // End Add Behavior programatically 
+            #endregion
+
             hostGeoManager.Open();
 
             Console.WriteLine("Services started. Press [Enter] to exit.");
