@@ -18,17 +18,19 @@ namespace GeoLib.Client
         public MainWindow()
         {
             InitializeComponent();
-
+            _proxy = new GeoClient("tcpEP");
             this.Title = "UI Running on Thread " + Thread.CurrentThread.ManagedThreadId +
                 " | Process " + Process.GetCurrentProcess().Id.ToString();
         }
+
+        private GeoClient _proxy = null;
 
         private void btnGetInfo_Click(object sender, RoutedEventArgs e)
         {
             //Using configuration for EndPoints
             if (txtZipCode.Text != "")
             {
-                GeoClient proxy = new GeoClient("webEP");
+                GeoClient proxy = new GeoClient("tcpEP");
                 ZipCodeData data = proxy.GetZipInfo(txtZipCode.Text);
                 if (data != null)
                 {
@@ -44,15 +46,20 @@ namespace GeoLib.Client
             //NoConfig
             if (txtState.Text != null)
             {
-                EndpointAddress address = new EndpointAddress("net.tcp://localhost:8009/GeoService");
-                Binding binding = new NetTcpBinding();
-                GeoClient proxy = new GeoClient(binding, address);
-                IEnumerable<ZipCodeData> data = proxy.GetZips(txtState.Text);
+                //Use programaticaly proxy creation
+                //
+                //EndpointAddress address = new EndpointAddress("net.tcp://localhost:8009/GeoService");
+                //Binding binding = new NetTcpBinding();
+                //GeoClient proxy = new GeoClient(binding, address);
+
+                //Use Configurably proxy creation
+                //GeoClient proxy = new GeoClient("tcpEP");
+                IEnumerable<ZipCodeData> data = _proxy.GetZips(txtState.Text);
                 if (data != null)
                 {
                     lstZips.ItemsSource = data;
                 }
-                proxy.Close();
+                //proxy.Close();
             }
         }
 
