@@ -40,7 +40,7 @@ namespace GeoLib.Services
         public ZipCodeData GetZipInfo(string zip)
         {
             //Thread.Sleep(10000);
-            throw new DivideByZeroException("dont divide by zero");
+            //throw new DivideByZeroException("dont divide by zero");
             ZipCodeData zipCodeData = null;
             IZipCodeRepository zipCodeRepository = _zipCodeRepository ?? new ZipCodeRepository();
             ZipCode zipCodeEntity = zipCodeRepository.GetByZip(zip);

@@ -8,6 +8,7 @@ using System.ServiceModel.Description;
 using System.Threading;
 using System.Windows;
 using GeoLib.Client.Contracts;
+using GeoLib.Client.ServiceReference1;
 using GeoLib.Contracts;
 using GeoLib.Proxies;
 
@@ -30,14 +31,22 @@ namespace GeoLib.Client
             //Using configuration for EndPoints
             if (txtZipCode.Text != "")
             {
-                GeoClient proxy = new GeoClient("tcpEP");
-                ZipCodeData data = proxy.GetZipInfo(txtZipCode.Text);
+                ServiceReference1.GeoServiceClient proxy = new ServiceReference1.GeoServiceClient();
+                var data = proxy.GetZipInfo(txtZipCode.Text);
                 if (data != null)
                 {
                     lblCity.Content = data.City;
                     lblState.Content = data.State;
                 }
                 proxy.Close();
+                //GeoClient proxy = new GeoClient("tcpEP");
+                //ZipCodeData data = proxy.GetZipInfo(txtZipCode.Text);
+                //if (data != null)
+                //{
+                //    lblCity.Content = data.City;
+                //    lblState.Content = data.State;
+                //}
+                //proxy.Close();
             }
         }
 
