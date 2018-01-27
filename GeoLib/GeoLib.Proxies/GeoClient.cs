@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using System.Text;
-using System.Threading.Tasks;
 using GeoLib.Contracts;
 
 namespace GeoLib.Proxies
 {
     public class GeoClient : ClientBase<IGeoService>, IGeoService
     {
-        public GeoClient(string endPointName)
-             : base(endPointName)
-        {
+        public GeoClient()
+        {            
+        }
 
+        public GeoClient(string endpointName)
+            : base(endpointName)
+        {            
         }
 
         public GeoClient(Binding binding, EndpointAddress address)
             : base(binding, address)
-        {
-
+        {            
         }
 
         public ZipCodeData GetZipInfo(string zip)

@@ -22,9 +22,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Content="Text to show:" Height="40" HorizontalAlignment="Left" Margin="53,340,0,0" x:Name="label1_Copy1" VerticalAlignment="Top" FontSize="20" Width="147" />
-        <TextBox x:Name="txtMessage" HorizontalAlignment="Left" Height="32" Margin="65,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359" FontSize="18"/>
-        <Button Content="Make Call" Height="39" HorizontalAlignment="Left" Margin="311,422,0,0" x:Name="btnMakeCall" VerticalAlignment="Top" Width="100" Click="btnMakeCall_Click" FontSize="20" />
     </Grid>
 
 </Window>

@@ -1,48 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using GeoLib.Contracts;
 using GeoLib.Data;
+using System.ServiceModel;
 
 namespace GeoLib.Services
 {
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class GeoManager : IGeoService
     {
-        private IZipCodeRepository _zipCodeRepository = null;
-        private IStateRepository _stateRepository = null;
-
         public GeoManager()
         {
-            
-        }
-
-        public GeoManager(IStateRepository stateRepository, IZipCodeRepository zipCodeRepository)
-        {
-            _stateRepository = stateRepository;
-            _zipCodeRepository = zipCodeRepository;
         }
 
         public GeoManager(IZipCodeRepository zipCodeRepository)
+            : this(zipCodeRepository, null)
         {
-            _zipCodeRepository = zipCodeRepository;
         }
 
         public GeoManager(IStateRepository stateRepository)
+            : this(null, stateRepository)
         {
-            _stateRepository = stateRepository;
         }
+
+        public GeoManager(IZipCodeRepository zipCodeRepository, IStateRepository stateRepository)
+        {
+            _ZipCodeRepository = zipCodeRepository;
+            _StateRepository = stateRepository;
+        }
+
+        IZipCodeRepository _ZipCodeRepository = null;
+        IStateRepository _StateRepository = null;
 
         public ZipCodeData GetZipInfo(string zip)
         {
-            //Thread.Sleep(10000);
-            //throw new DivideByZeroException("dont divide by zero");
             ZipCodeData zipCodeData = null;
-            IZipCodeRepository zipCodeRepository = _zipCodeRepository ?? new ZipCodeRepository();
+
+            IZipCodeRepository zipCodeRepository = _ZipCodeRepository ?? new ZipCodeRepository();
+
             ZipCode zipCodeEntity = zipCodeRepository.GetByZip(zip);
             if (zipCodeEntity != null)
             {
@@ -53,6 +49,22 @@ namespace GeoLib.Services
                     ZipCode = zipCodeEntity.Zip
                 };
             }
+            else
+            {
+                //throw new ApplicationException(string.Format("Zip code {0} not found.", zip));
+                //throw new FaultException(string.Format("Zip code {0} not found.", zip));
+                //ApplicationException ex = new ApplicationException(string.Format("Zip code {0} not found.", zip));
+                //throw new FaultException<ApplicationException>(ex,"Why Did You Do This To Us??");
+                NotFoundData data = new NotFoundData()
+                {
+                    Message = string.Format("Zip code {0} not found.", zip),
+                    When = DateTime.Now.ToString(),
+                    User = "Shai"
+                };
+                throw new FaultException<NotFoundData>(data, "Customing custom is cool and custom");
+
+            }
+
             return zipCodeData;
         }
 
@@ -60,16 +72,13 @@ namespace GeoLib.Services
         {
             List<string> stateData = new List<string>();
 
-            IStateRepository stateRepository = _stateRepository ?? new StateRepository();
+            IStateRepository stateRepository = _StateRepository ?? new StateRepository();
 
             IEnumerable<State> states = stateRepository.Get(primaryOnly);
-
             if (states != null)
             {
-                foreach (var state in states)
-                {
+                foreach (State state in states)
                     stateData.Add(state.Abbreviation);
-                }
             }
 
             return stateData;
@@ -77,17 +86,16 @@ namespace GeoLib.Services
 
         public IEnumerable<ZipCodeData> GetZips(string state)
         {
-            List<ZipCodeData> zips = new List<ZipCodeData>();
+            List<ZipCodeData> zipCodeData = new List<ZipCodeData>();
 
-            IZipCodeRepository zipCodeRepository = _zipCodeRepository ?? new ZipCodeRepository();
+            IZipCodeRepository zipCodeRepository = _ZipCodeRepository ?? new ZipCodeRepository();
 
-            var zipCodes = zipCodeRepository.GetByState(state);
-
-            if (zipCodes != null)
+            var zips = zipCodeRepository.GetByState(state);
+            if (zips != null)
             {
-                foreach (var zipCode in zipCodes)
+                foreach (ZipCode zipCode in zips)
                 {
-                    zips.Add(new ZipCodeData()
+                    zipCodeData.Add(new ZipCodeData()
                     {
                         City = zipCode.City,
                         State = zipCode.State.Abbreviation,
@@ -96,22 +104,22 @@ namespace GeoLib.Services
                 }
             }
 
-            return zips;
+            return zipCodeData;
         }
 
         public IEnumerable<ZipCodeData> GetZips(string zip, int range)
         {
-            List<ZipCodeData> zips = new List<ZipCodeData>();
+            List<ZipCodeData> zipCodeData = new List<ZipCodeData>();
 
-            IZipCodeRepository zipCodeRepository = _zipCodeRepository ?? new ZipCodeRepository();
+            IZipCodeRepository zipCodeRepository = _ZipCodeRepository ?? new ZipCodeRepository();
 
-            var zipCodes = zipCodeRepository.GetZipsForRange(zipCodeRepository.GetByZip(zip), range);
-
-            if (zipCodes != null)
+            ZipCode zipEntity = zipCodeRepository.GetByZip(zip);
+            IEnumerable<ZipCode> zips = zipCodeRepository.GetZipsForRange(zipEntity, range);
+            if (zips != null)
             {
-                foreach (var zipCode in zipCodes)
+                foreach (ZipCode zipCode in zips)
                 {
-                    zips.Add(new ZipCodeData()
+                    zipCodeData.Add(new ZipCodeData()
                     {
                         City = zipCode.City,
                         State = zipCode.State.Abbreviation,
@@ -120,7 +128,7 @@ namespace GeoLib.Services
                 }
             }
 
-            return zips;
+            return zipCodeData;
         }
     }
 }
