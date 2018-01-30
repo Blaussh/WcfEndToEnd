@@ -1,3 +1,5 @@
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\obj\Debug\GeoLib.Tests.csprojResolveAssemblyReference.cache
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\obj\Debug\GeoLib.Tests.csproj.CoreCompileInputs.cache
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\bin\Debug\GeoLib.Tests.dll.config
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\bin\Debug\GeoLib.Tests.dll
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\bin\Debug\GeoLib.Tests.pdb
@@ -19,7 +21,5 @@ C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\bin\Debug\GeoLib.Ser
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\bin\Debug\EntityFramework.xml
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\bin\Debug\Moq.xml
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\obj\Debug\GeoLib.Tests.csprojResolveAssemblyReference.cache
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\obj\Debug\GeoLib.Tests.csproj.CoreCompileInputs.cache
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\obj\Debug\GeoLib.Tests.dll
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Tests\obj\Debug\GeoLib.Tests.pdb

@@ -7,7 +7,7 @@ using GeoLib.Contracts;
 
 namespace GeoLib.Proxies
 {
-    public class GeoClient : ClientBase<IGeoService>, IGeoService
+    public class GeoClient :ClientBase<IGeoService>, IGeoService
     {
         public GeoClient()
         {            
@@ -43,14 +43,14 @@ namespace GeoLib.Proxies
             return Channel.GetZips(zip, range);
         }
 
-        public void UpdateZipCity(string zip, string city)
-        {
-            Channel.UpdateZipCity(zip, city);
-        }
-
         public void UpdateZipCity(IEnumerable<ZipCityData> zipCityData)
         {
             Channel.UpdateZipCity(zipCityData);
+        }
+
+        public void OneWayExample()
+        {
+            Channel.OneWayExample();
         }
     }
 }

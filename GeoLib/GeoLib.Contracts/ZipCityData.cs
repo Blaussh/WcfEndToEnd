@@ -1,9 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GeoLib.Contracts
 {
@@ -12,7 +10,6 @@ namespace GeoLib.Contracts
     {
         [DataMember]
         public string City { get; set; }
-
         [DataMember]
         public string ZipCode { get; set; }
     }

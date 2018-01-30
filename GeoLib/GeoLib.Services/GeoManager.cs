@@ -5,11 +5,11 @@ using GeoLib.Contracts;
 using GeoLib.Data;
 using System.ServiceModel;
 using System.Transactions;
+using System.Windows;
 
 namespace GeoLib.Services
 {
-    [ServiceBehavior(ReleaseServiceInstanceOnTransactionComplete = false,
-        InstanceContextMode = InstanceContextMode.PerSession)]
+    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant, ReleaseServiceInstanceOnTransactionComplete = false)]
     public class GeoManager : IGeoService
     {
         public GeoManager()
@@ -52,20 +52,7 @@ namespace GeoLib.Services
                 };
             }
             else
-            {
-                //throw new ApplicationException(string.Format("Zip code {0} not found.", zip));
-                //throw new FaultException(string.Format("Zip code {0} not found.", zip));
-                //ApplicationException ex = new ApplicationException(string.Format("Zip code {0} not found.", zip));
-                //throw new FaultException<ApplicationException>(ex,"Why Did You Do This To Us??");
-                NotFoundData data = new NotFoundData()
-                {
-                    Message = string.Format("Zip code {0} not found.", zip),
-                    When = DateTime.Now.ToString(),
-                    User = "Shai"
-                };
-                throw new FaultException<NotFoundData>(data, "Customing custom is cool and custom");
-
-            }
+                throw new FaultException(string.Format("Zip code {0} not found.", zip));
 
             return zipCodeData;
         }
@@ -129,21 +116,8 @@ namespace GeoLib.Services
                     });
                 }
             }
+
             return zipCodeData;
-        }
-
-        [OperationBehavior(TransactionScopeRequired = true)]
-        public void UpdateZipCity(string zip, string city)
-        {
-            IZipCodeRepository zipCodeRepository = _ZipCodeRepository ?? new ZipCodeRepository();
-
-            ZipCode zipEntity = zipCodeRepository.GetByZip(zip);
-
-            if (zipEntity != null)
-            {
-                zipEntity.City = city;
-                zipCodeRepository.Update(zipEntity);
-            }
         }
 
         [OperationBehavior(TransactionScopeRequired = true)]
@@ -151,24 +125,17 @@ namespace GeoLib.Services
         {
             IZipCodeRepository zipCodeRepository = _ZipCodeRepository ?? new ZipCodeRepository();
 
-            //Dictionary<string, string> cityBatch = new Dictionary<string, string>();
-
-            //foreach (ZipCityData zipCityItem in zipCityData)
-            //    cityBatch.Add(zipCityItem.ZipCode, zipCityItem.City);
-
-            //zipCodeRepository.UpdateCityBatch(cityBatch);
-            int counter = 0;
             foreach (ZipCityData zipCityItem in zipCityData)
             {
-                counter++;
-                //if (counter == 2)
-                //    throw new FaultException("Sorry, no can do.");
                 ZipCode zipCodeEntity = zipCodeRepository.GetByZip(zipCityItem.ZipCode);
                 zipCodeEntity.City = zipCityItem.City;
-                ZipCode updateItem = zipCodeRepository.Update(zipCodeEntity);
+                ZipCode updatedItem = zipCodeRepository.Update(zipCodeEntity);
             }
+        }
 
-            //OperationContext.Current.SetTransactionComplete();
+        public void OneWayExample()
+        {
+            MessageBox.Show("Made it to the service.");
         }
     }
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using System.Transactions;
 using System.Windows;
 using GeoLib.Proxies;
 using GeoLib.Contracts;
+using System.Threading;
 
 namespace GeoLib.Client
 {
@@ -64,36 +64,12 @@ namespace GeoLib.Client
             List<ZipCityData> cityZipList = new List<ZipCityData>()
             {
             	new ZipCityData() { ZipCode = "07035", City = "Bedrock" },
-                new ZipCityData() { ZipCode = "33033", City = "End of the World" }
+                new ZipCityData() { ZipCode = "33033", City = "End of the World" },
+                new ZipCityData() { ZipCode = "90210", City = "Alderan" },
+                new ZipCityData() { ZipCode = "07094", City = "Storybrooke" }
             };
 
-            try
-            {
-                GeoClient proxy = new GeoClient();
-                using (TransactionScope scope = new TransactionScope())
-                {
-                    proxy.UpdateZipCity(cityZipList);
-                    proxy.Close();
-                    throw new ApplicationException("uh oh");
-
-                    scope.Complete();
-                }
-
-                MessageBox.Show("Updated.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error");
-            }
-        }
-
-        private void btnPutBack_Click(object sender, RoutedEventArgs e)
-        {
-            List<ZipCityData> cityZipList = new List<ZipCityData>()
-            {
-            	new ZipCityData() { ZipCode = "07035", City = "Lincoln Park" },
-                new ZipCityData() { ZipCode = "33033", City = "Homestead" }
-            };
+            lstUpdates.Items.Clear();
 
             try
             {
@@ -107,8 +83,54 @@ namespace GeoLib.Client
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void btnPutBack_Click(object sender, RoutedEventArgs e)
+        {
+            List<ZipCityData> cityZipList = new List<ZipCityData>()
+            {
+            	new ZipCityData() { ZipCode = "07035", City = "Lincoln Park" },
+                new ZipCityData() { ZipCode = "33033", City = "Homestead" },
+                new ZipCityData() { ZipCode = "90210", City = "Beverly Hills" },
+                new ZipCityData() { ZipCode = "07094", City = "Secaucus" }
+            };
+
+            lstUpdates.Items.Clear();
+
+            Thread thread = new Thread(() =>
+            {
+                try
+                {
+                    GeoClient proxy = new GeoClient();
+                    proxy.Open();
+
+                    proxy.UpdateZipCity(cityZipList);
+
+                    proxy.Close();
+
+                    MessageBox.Show("Updated.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            });
+
+            thread.Start();
+        }
+
+        private void btnOneWay_Click(object sender, RoutedEventArgs e)
+        {
+            GeoClient proxy = new GeoClient();
+
+            proxy.OneWayExample();
+            MessageBox.Show("Oneway Example called. Back at client.");
+
+            proxy.Close();
+
+            MessageBox.Show("Proxy is closed");
         }
     }
 }

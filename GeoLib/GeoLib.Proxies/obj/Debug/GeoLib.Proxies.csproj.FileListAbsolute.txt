@@ -1,8 +1,8 @@
-C:\Users\shaig\source\repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\bin\Debug\GeoLib.Proxies.dll
-C:\Users\shaig\source\repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\bin\Debug\GeoLib.Proxies.pdb
-C:\Users\shaig\source\repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\bin\Debug\GeoLib.Contracts.dll
-C:\Users\shaig\source\repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\bin\Debug\GeoLib.Contracts.pdb
-C:\Users\shaig\source\repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\obj\Debug\GeoLib.Proxies.csprojResolveAssemblyReference.cache
-C:\Users\shaig\source\repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\obj\Debug\GeoLib.Proxies.csproj.CoreCompileInputs.cache
-C:\Users\shaig\source\repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\obj\Debug\GeoLib.Proxies.dll
-C:\Users\shaig\source\repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\obj\Debug\GeoLib.Proxies.pdb
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\bin\Debug\GeoLib.Proxies.dll
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\bin\Debug\GeoLib.Proxies.pdb
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\bin\Debug\GeoLib.Contracts.dll
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\bin\Debug\GeoLib.Contracts.pdb
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\obj\Debug\GeoLib.Proxies.csprojResolveAssemblyReference.cache
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\obj\Debug\GeoLib.Proxies.csproj.CoreCompileInputs.cache
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\obj\Debug\GeoLib.Proxies.dll
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Proxies\obj\Debug\GeoLib.Proxies.pdb

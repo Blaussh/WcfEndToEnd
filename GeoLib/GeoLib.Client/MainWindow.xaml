@@ -22,8 +22,20 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Update Batch" Height="39" HorizontalAlignment="Left" Margin="53,211,0,0" x:Name="btnUpdateBatch" VerticalAlignment="Top" Width="156" Click="btnUpdateBatch_Click" FontSize="20" />
-        <Button Content="Put Back" Height="39" HorizontalAlignment="Left" Margin="53,269,0,0" x:Name="btnPutBack" VerticalAlignment="Top" Width="156" Click="btnPutBack_Click" FontSize="20" />
+        <Button Content="Update Batch" Height="39" HorizontalAlignment="Left" Margin="53,332,0,0" x:Name="btnUpdateBatch" VerticalAlignment="Top" Width="156" Click="btnUpdateBatch_Click" FontSize="20" />
+        <Button Content="Put Back" Height="39" HorizontalAlignment="Left" Margin="53,390,0,0" x:Name="btnPutBack" VerticalAlignment="Top" Width="156" Click="btnPutBack_Click" FontSize="20" />
+        <Button Content="One-Way" Height="39" HorizontalAlignment="Left" Margin="53,218,0,0" x:Name="btnOneWay" VerticalAlignment="Top" Width="156" Click="btnOneWay_Click" FontSize="20" />
+        <ListBox HorizontalAlignment="Left" Height="158" Margin="240,332,0,0" VerticalAlignment="Top" Width="199" x:Name="lstUpdates" FontSize="16">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding ZipCode}" />
+                        <TextBlock Text=" - " />
+                        <TextBlock Text="{Binding City}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 
 </Window>
