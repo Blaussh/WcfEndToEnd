@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using System.Transactions;
 using System.Windows;
 using GeoLib.Proxies;
 using GeoLib.Contracts;
@@ -33,43 +34,13 @@ namespace GeoLib.Client
 
                     proxy.Close();
                 }
-                catch (FaultException<ExceptionDetail> ex)
-                {
-                    MessageBox.Show("Exception thrown by service.\n\rException type: " +
-                                    "FaultException<ExceptionDetail>\n\r" +
-                                    "Message: " + ex.Message + "\n\r" +
-                                    "Proxy state: " + proxy.State.ToString());
-                }
-                catch (FaultException<ApplicationException> ex)
-                {
-                    MessageBox.Show("FaultException<ApplicationException> thrown by service.\n\rException type: " +
-                                    "FaultException<ApplicationException>\n\r" +
-                                    "Reason: " + ex.Message + "\n\r" +
-                                    "Message: " + ex.Detail.Message + "\n\r" +
-                                    "Proxy state: " + proxy.State.ToString());
-                }
-                catch (FaultException<NotFoundData> ex)
-                {
-                    MessageBox.Show("FaultException<NotFoundData> thrown by service.\n\rException type: " +
-                                    "FaultException<NotFoundData>\n\r" +
-                                    "Reason: " + ex.Message + "\n\r" +
-                                    "Message: " + ex.Detail.Message + "\n\r" +
-                                    "Time: " + ex.Detail.When + "\n\r" +
-                                    "Proxy state: " + proxy.State.ToString());
-                }
                 catch (FaultException ex)
                 {
-                    MessageBox.Show("FaultException thrown by service.\n\rException type: " +
-                                    ex.GetType().Name + "\n\r" +
-                                    "Message: " + ex.Message + "\n\r" +
-                                    "Proxy state: " + proxy.State.ToString());
+                    MessageBox.Show("Fault Exception: " + ex.Message);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Exception thrown by service.\n\rException type: " + 
-                        ex.GetType().Name + "\n\r" +
-                        "Message: " + ex.Message + "\n\r" +
-                        "Proxy state: " + proxy.State.ToString());
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -85,6 +56,58 @@ namespace GeoLib.Client
                     lstZips.ItemsSource = data;
 
                 proxy.Close();
+            }
+        }
+
+        private void btnUpdateBatch_Click(object sender, RoutedEventArgs e)
+        {
+            List<ZipCityData> cityZipList = new List<ZipCityData>()
+            {
+            	new ZipCityData() { ZipCode = "07035", City = "Bedrock" },
+                new ZipCityData() { ZipCode = "33033", City = "End of the World" }
+            };
+
+            try
+            {
+                GeoClient proxy = new GeoClient();
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    proxy.UpdateZipCity(cityZipList);
+                    proxy.Close();
+                    throw new ApplicationException("uh oh");
+
+                    scope.Complete();
+                }
+
+                MessageBox.Show("Updated.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error");
+            }
+        }
+
+        private void btnPutBack_Click(object sender, RoutedEventArgs e)
+        {
+            List<ZipCityData> cityZipList = new List<ZipCityData>()
+            {
+            	new ZipCityData() { ZipCode = "07035", City = "Lincoln Park" },
+                new ZipCityData() { ZipCode = "33033", City = "Homestead" }
+            };
+
+            try
+            {
+                GeoClient proxy = new GeoClient();
+
+                proxy.UpdateZipCity(cityZipList);
+
+                proxy.Close();
+
+                MessageBox.Show("Updated.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error");
             }
         }
     }

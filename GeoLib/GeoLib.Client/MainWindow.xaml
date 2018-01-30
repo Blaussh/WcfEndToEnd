@@ -22,6 +22,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button Content="Update Batch" Height="39" HorizontalAlignment="Left" Margin="53,211,0,0" x:Name="btnUpdateBatch" VerticalAlignment="Top" Width="156" Click="btnUpdateBatch_Click" FontSize="20" />
+        <Button Content="Put Back" Height="39" HorizontalAlignment="Left" Margin="53,269,0,0" x:Name="btnPutBack" VerticalAlignment="Top" Width="156" Click="btnPutBack_Click" FontSize="20" />
     </Grid>
 
 </Window>

@@ -62,5 +62,17 @@ namespace GeoLib.Data
                     .ToFullyLoaded();
             }
         }
+
+        public void UpdateCityBatch(Dictionary<string, string> cityBatch)
+        {
+            using (GeoLibDbContext entityContext = new GeoLibDbContext())
+            {
+                List<string> cityBatchList = (from kvp in cityBatch select kvp.Key).ToList(); // Linq-to-Entities doesn't like ContainsKey from Dictionary
+                List<ZipCode> zips = entityContext.ZipCodeSet.Where(e => cityBatchList.Contains(e.Zip)).ToList();
+                zips.ForEach(e => e.City = cityBatch[e.Zip]);
+                
+                entityContext.SaveChanges();
+            }
+        }
     }
 }

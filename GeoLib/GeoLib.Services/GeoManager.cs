@@ -4,10 +4,12 @@ using System.Linq;
 using GeoLib.Contracts;
 using GeoLib.Data;
 using System.ServiceModel;
+using System.Transactions;
 
 namespace GeoLib.Services
 {
-    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
+    [ServiceBehavior(ReleaseServiceInstanceOnTransactionComplete = false,
+        InstanceContextMode = InstanceContextMode.PerSession)]
     public class GeoManager : IGeoService
     {
         public GeoManager()
@@ -127,8 +129,46 @@ namespace GeoLib.Services
                     });
                 }
             }
-
             return zipCodeData;
+        }
+
+        [OperationBehavior(TransactionScopeRequired = true)]
+        public void UpdateZipCity(string zip, string city)
+        {
+            IZipCodeRepository zipCodeRepository = _ZipCodeRepository ?? new ZipCodeRepository();
+
+            ZipCode zipEntity = zipCodeRepository.GetByZip(zip);
+
+            if (zipEntity != null)
+            {
+                zipEntity.City = city;
+                zipCodeRepository.Update(zipEntity);
+            }
+        }
+
+        [OperationBehavior(TransactionScopeRequired = true)]
+        public void UpdateZipCity(IEnumerable<ZipCityData> zipCityData)
+        {
+            IZipCodeRepository zipCodeRepository = _ZipCodeRepository ?? new ZipCodeRepository();
+
+            //Dictionary<string, string> cityBatch = new Dictionary<string, string>();
+
+            //foreach (ZipCityData zipCityItem in zipCityData)
+            //    cityBatch.Add(zipCityItem.ZipCode, zipCityItem.City);
+
+            //zipCodeRepository.UpdateCityBatch(cityBatch);
+            int counter = 0;
+            foreach (ZipCityData zipCityItem in zipCityData)
+            {
+                counter++;
+                //if (counter == 2)
+                //    throw new FaultException("Sorry, no can do.");
+                ZipCode zipCodeEntity = zipCodeRepository.GetByZip(zipCityItem.ZipCode);
+                zipCodeEntity.City = zipCityItem.City;
+                ZipCode updateItem = zipCodeRepository.Update(zipCodeEntity);
+            }
+
+            //OperationContext.Current.SetTransactionComplete();
         }
     }
 }
