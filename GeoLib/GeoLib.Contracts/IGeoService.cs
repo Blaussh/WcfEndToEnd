@@ -5,7 +5,7 @@ using System.ServiceModel;
 
 namespace GeoLib.Contracts
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(IUpdateZipCallback))]
     public interface IGeoService
     {
         [OperationContract]
@@ -32,6 +32,6 @@ namespace GeoLib.Contracts
     public interface IUpdateZipCallback
     {
         [OperationContract(IsOneWay = true)]
-        void ZipUpdated(ZipCityData z);
+        void ZipUpdated(ZipCityData zipCityData);
     }
 }
