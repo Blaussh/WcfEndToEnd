@@ -1,5 +1,3 @@
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\obj\Debug\GeoLib.ConsoleHost.csprojResolveAssemblyReference.cache
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\obj\Debug\GeoLib.ConsoleHost.csproj.CoreCompileInputs.cache
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\bin\Debug\GeoLib.ConsoleHost.exe.config
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\bin\Debug\GeoLib.ConsoleHost.exe
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\bin\Debug\GeoLib.ConsoleHost.pdb
@@ -18,5 +16,7 @@ C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\bin\Debug\GeoL
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\bin\Debug\GeoLib.Services.dll.config
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\bin\Debug\EntityFramework.xml
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\obj\Debug\GeoLib.ConsoleHost.csprojResolveAssemblyReference.cache
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\obj\Debug\GeoLib.ConsoleHost.csproj.CoreCompileInputs.cache
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\obj\Debug\GeoLib.ConsoleHost.exe
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.ConsoleHost\obj\Debug\GeoLib.ConsoleHost.pdb

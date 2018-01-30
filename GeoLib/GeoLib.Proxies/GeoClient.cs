@@ -7,20 +7,21 @@ using GeoLib.Contracts;
 
 namespace GeoLib.Proxies
 {
-    public class GeoClient :ClientBase<IGeoService>, IGeoService
+    public class GeoClient : DuplexClientBase<IGeoService>, IGeoService
     {
-        public GeoClient()
-        {            
+        public GeoClient(InstanceContext instanceContext)
+            : base(instanceContext)
+        {
         }
 
-        public GeoClient(string endpointName)
-            : base(endpointName)
-        {            
+        public GeoClient(InstanceContext instanceContext, string endpointName)
+            : base(instanceContext, endpointName)
+        {
         }
 
-        public GeoClient(Binding binding, EndpointAddress address)
-            : base(binding, address)
-        {            
+        public GeoClient(InstanceContext instanceContext, Binding binding, EndpointAddress address)
+            : base(instanceContext, binding, address)
+        {
         }
 
         public ZipCodeData GetZipInfo(string zip)

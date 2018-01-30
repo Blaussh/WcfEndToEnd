@@ -5,6 +5,7 @@ C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Core\bin\Debug\EntityFrame
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Core\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Core\bin\Debug\EntityFramework.xml
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Core\obj\Debug\GeoLib.Core.csprojResolveAssemblyReference.cache
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Core\obj\Debug\GeoLib.Core.csproj.CoreCompileInputs.cache
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Core\obj\Debug\GeoLib.Core.dll
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.Core\obj\Debug\GeoLib.Core.pdb

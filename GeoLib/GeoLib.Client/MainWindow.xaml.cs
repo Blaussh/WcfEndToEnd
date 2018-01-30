@@ -10,7 +10,8 @@ using System.Threading;
 
 namespace GeoLib.Client
 {
-    public partial class MainWindow : Window
+    [CallbackBehavior(UseSynchronizationContext = false)] //force the callback to enter on a background thread
+    public partial class MainWindow : Window,IUpdateZipCallback
     {
         public MainWindow()
         {
@@ -21,7 +22,7 @@ namespace GeoLib.Client
         {
             if (txtZipCode.Text != "")
             {
-                GeoClient proxy = new GeoClient();
+                GeoClient proxy = new GeoClient(new InstanceContext(this));
 
                 try
                 {
@@ -49,7 +50,7 @@ namespace GeoLib.Client
         {
             if (txtState.Text != null)
             {
-                GeoClient proxy = new GeoClient();
+                GeoClient proxy = new GeoClient(new InstanceContext(this));
 
                 IEnumerable<ZipCodeData> data = proxy.GetZips(txtState.Text);
                 if (data != null)
@@ -73,7 +74,7 @@ namespace GeoLib.Client
 
             try
             {
-                GeoClient proxy = new GeoClient();
+                GeoClient proxy = new GeoClient(new InstanceContext(this));
 
                 proxy.UpdateZipCity(cityZipList);
 
@@ -85,6 +86,12 @@ namespace GeoLib.Client
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        public void ZipUpdated(ZipCityData zipCityData)
+        {
+            MessageBox.Show(string.Format("Updated zipcode {0} with city {1}", 
+                zipCityData.ZipCode, zipCityData.City));
         }
 
         private void btnPutBack_Click(object sender, RoutedEventArgs e)
@@ -103,7 +110,7 @@ namespace GeoLib.Client
             {
                 try
                 {
-                    GeoClient proxy = new GeoClient();
+                    GeoClient proxy = new GeoClient(new InstanceContext(this));
                     proxy.Open();
 
                     proxy.UpdateZipCity(cityZipList);
@@ -123,7 +130,7 @@ namespace GeoLib.Client
 
         private void btnOneWay_Click(object sender, RoutedEventArgs e)
         {
-            GeoClient proxy = new GeoClient();
+            GeoClient proxy = new GeoClient(new InstanceContext(this));
 
             proxy.OneWayExample();
             MessageBox.Show("Oneway Example called. Back at client.");
@@ -132,5 +139,6 @@ namespace GeoLib.Client
 
             MessageBox.Show("Proxy is closed");
         }
+
     }
 }

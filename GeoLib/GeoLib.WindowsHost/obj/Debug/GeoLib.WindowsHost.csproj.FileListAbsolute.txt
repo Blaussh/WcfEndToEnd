@@ -1,12 +1,3 @@
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.csprojResolveAssemblyReference.cache
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\MainWindow.baml
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\MainWindow.g.cs
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\App.g.cs
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost_MarkupCompile.cache
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.g.resources
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.Properties.Resources.resources
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.csproj.GenerateResource.Cache
-C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.csproj.CoreCompileInputs.cache
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\bin\Debug\GeoLib.WindowsHost.exe.config
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\bin\Debug\GeoLib.WindowsHost.exe
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\bin\Debug\GeoLib.WindowsHost.pdb
@@ -25,5 +16,14 @@ C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\bin\Debug\GeoL
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\bin\Debug\GeoLib.Services.dll.config
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\bin\Debug\EntityFramework.xml
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.csprojResolveAssemblyReference.cache
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\MainWindow.baml
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\MainWindow.g.cs
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\App.g.cs
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost_MarkupCompile.cache
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.g.resources
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.Properties.Resources.resources
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.csproj.GenerateResource.Cache
+C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.csproj.CoreCompileInputs.cache
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.exe
 C:\Users\shaig\Source\Repos\WcfEndToEnd\GeoLib\GeoLib.WindowsHost\obj\Debug\GeoLib.WindowsHost.pdb
